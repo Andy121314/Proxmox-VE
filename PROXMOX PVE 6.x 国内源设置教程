@@ -1,0 +1,23 @@
+删除企业源
+rm -rf /etc/apt/sources.list.d/pve-enterprise.list
+
+下载秘钥
+wget http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
+
+添加社区源
+echo "deb http://download.proxmox.wiki/debian/pve stretch pve-no-subscription" >/etc/apt/sources.list.d/pve-install-repo.list
+
+建议同时使用国内debian源，修改/etc/apt/sources.list文件，添加如下内容：
+
+echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb http://mirrors.aliyun.com/debian-security buster/updates main
+deb-src http://mirrors.aliyun.com/debian-security buster/updates main
+deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" > /etc/apt/sources.list
+最后执行
+apt update
+
+apt update && apt dist-upgrade #如需升级pve，则执行该命令
