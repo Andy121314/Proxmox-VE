@@ -26,6 +26,4 @@ echo "deb http://mirrors.ustc.edu.cn/proxmox/debian/ceph-nautilus buster main" >
 
 apt update
 
-apt update && apt dist-upgrade
-
 apt update && apt dist-upgrade #如需升级pve，则执行该命令
